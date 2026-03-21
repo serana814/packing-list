@@ -137,4 +137,41 @@ document.getElementById('item-input').addEventListener('keydown', e => {
   if (e.key === 'Enter') addItem();
 });
 
+let tripName = localStorage.getItem('trip-name') || 'My trip';
+
+function startEdit() {
+  document.getElementById('title-display').style.display = 'none';
+  document.getElementById('edit-btn').style.display = 'none';
+  document.getElementById('title-edit').style.display = 'flex';
+  const input = document.getElementById('title-input');
+  input.value = tripName;
+  input.focus();
+  input.select();
+}
+
+function saveEdit() {
+  const input = document.getElementById('title-input');
+  const newName = input.value.trim();
+  if (newName) {
+    tripName = newName;
+    localStorage.setItem('trip-name', tripName);
+  }
+  document.getElementById('title-display').textContent = tripName;
+  document.getElementById('title-display').style.display = '';
+  document.getElementById('edit-btn').style.display = '';
+  document.getElementById('title-edit').style.display = 'none';
+}
+
+function cancelEdit() {
+  document.getElementById('title-display').style.display = '';
+  document.getElementById('edit-btn').style.display = '';
+  document.getElementById('title-edit').style.display = 'none';
+}
+
 render();
+
+document.getElementById('title-display').textContent = tripName;
+document.getElementById('title-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') saveEdit();
+  if (e.key === 'Escape') cancelEdit();
+});

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packing List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+  <div class="header">
+  <div class="trip-label">Packing list</div>
+  <div class="title-row">
+    <div class="title" id="title-display">My trip</div>
+    <button class="edit-btn" onclick="startEdit()" id="edit-btn" title="Edit trip name">✎</button>
+    <div class="title-edit" id="title-edit" style="display:none;">
+      <input class="title-input" id="title-input" type="text" maxlength="40">
+      <button class="save-btn" onclick="saveEdit()">Save</button>
+      <button class="cancel-btn" onclick="cancelEdit()">Cancel</button>
+    </div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-track">
+      <div class="progress-bar-fill" id="progress-fill"></div>
+    </div>
+    <div class="progress-label" id="progress-label">0 / 0</div>
+  </div>
+</div>
+
+    <div class="add-section">
+      <input class="add-input" id="item-input" type="text" placeholder="Add an item..." maxlength="60">
+      <div class="add-controls">
+        <select class="cat-select" id="cat-select">
+          <option value="clothing">👕 Clothing</option>
+          <option value="toiletries">🧴 Toiletries</option>
+          <option value="documents">📄 Documents</option>
+          <option value="electronics">🔌 Electronics</option>
+          <option value="health">💊 Health</option>
+          <option value="misc">🎒 Misc</option>
+        </select>
+        <button class="add-btn" onclick="addItem()">Add</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+      <button class="filter-btn" onclick="setFilter('unpacked', this)">Still needed</button>
+      <button class="filter-btn" onclick="setFilter('packed', this)">Packed</button>
+    </div>
+
+    <div id="list-container"></div>
+
+    <div class="bottom-actions">
+      <button class="action-btn" onclick="packAll()">Pack all</button>
+      <button class="action-btn" onclick="unpackAll()">Unpack all</button>
+      <button class="action-btn danger" onclick="clearAll()">Clear list</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
