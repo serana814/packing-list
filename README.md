@@ -15,7 +15,7 @@ https://serana814.github.io/packing-list
 6. Click Pack all, Unpack all, or Clear list at the bottom to reset
 
 ## What I learned
-The trickiest part of this project was building the filter feature. I assumed filtering would delete items from the list, but I learned that the correct way is to keep all the data in one array and just change *what you show* based on the current filter. The render() function re-reads all of the items every time and decides which ones to show meanwhile the data itself never changes when you click a filter. My biggest takeaway from this project was understanding that separation in data storage. I also learned how localStorage works to save data between sessions. Every time the list changes, the app stores it in the browser, so your list is still there when you close the tab and come back.
+The trickiest part of this project was building the filter feature. I assumed filtering would delete items from the list, but I learned that the correct way is to keep all the data in one array and just change "what you show" based on the current filter. The render() function re-reads all of the items every time and decides which ones to show meanwhile the data itself never changes when you click a filter. My biggest takeaway from this project was understanding that separation in data storage. I also learned how localStorage works to save data between sessions. Every time the list changes, the app stores it in the browser, so your list is still there when you close the tab and come back.
 
 ## Built with
 - HTML, CSS, and JavaScript
